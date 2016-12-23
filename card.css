@@ -28,7 +28,7 @@ body {
 	padding-left: 2mm;
 	background-color: white;
 	letter-spacing: 1px;
-	display: block;
+	display: inline-block;
 	margin-right: 1mm;
 	margin-left: 1mm;
 	margin-bottom: 1mm;
