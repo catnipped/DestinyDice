@@ -1,0 +1,33 @@
+<!DOCTYPE <html>
+ <header>
+ 	<meta charset="UTF-8">
+<!-- Define the Right Viewport -->
+<meta name="viewport" content="width=device-width; initial-scale=1.0; maximum-scale=1.0; user-scalable=no" />
+<!-- Load It Like A Native App -->
+<meta name="apple-touch-fullscreen" content="yes">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black">
+<script>(function(a,b,c){if(c in b&&b[c]){var d,e=a.location,f=/^(a|html)$/i;a.addEventListener("click",function(a){d=a.target;while(!f.test(d.nodeName))d=d.parentNode;"href"in d&&(d.href.indexOf("http")||~d.href.indexOf(e.host))&&(a.preventDefault(),e.href=d.href)},!1)}})(document,window.navigator,"standalone")</script>   
+	<script src="jquery.min.js"></script>
+	<script src="scripts.js" type="text/javascript"></script>
+	<script   src="https://code.jquery.com/ui/1.12.1/jquery-ui.min.js"   integrity="sha256-VazP97ZCwtekAsvgPBSUwPFKdrwD3unUfSGVYrahUqU="   crossorigin="anonymous"></script>
+	<script src="jquery.ui.touch-punch.min.js"></script>
+	<link href="card.css" type="text/css" rel="stylesheet">
+ </header>
+ <body>
+<!-- 	<form>
+ 		<span>card id :</span>
+ 		<input type="number" name="cardid" value="1" min="1">
+ 		<a href="#" onclick="addCard()">add die</a>
+ 	</form>-->
+ 	<div id="dice"></div>
+ 	<div id="deck" class="hide"></div>
+ 	<div id="actions">
+ 		<span onclick="selectAction(exhaustDice,$(this))" class="action">exhaust</span>
+ 		<span onclick="selectAction(rollDice,$(this))" class="action">roll</span>
+ 		<span onclick="selectAction(focusDie,$(this))" class="action">focus</span>
+ 		<span onclick="selectAction(addRemoveDice,$(this))" class="action">deck</span>
+ 	</div>
+ 	<div id="focus" class="hide"></div>
+ </body>
+</html>

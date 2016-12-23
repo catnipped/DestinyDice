@@ -1,0 +1,260 @@
+
+@import url('https://fonts.googleapis.com/css?family=Roboto:400,400i,500,500i,700|Teko:300,400,500,600,700');
+body {
+	font: 14px Roboto;
+	font-weight: 400;
+	background-color: #d6d6d6;
+}
+
+#actions {
+	position: fixed;
+	bottom: 0;
+	left: 0;
+	background: black;
+	height: 15mm;
+	width: 100%;
+	color: white;
+	z-index: 1;
+	line-height: 17mm;
+	text-indent: 1mm;
+}
+
+.action {
+	text-transform: uppercase;
+	font: 9mm teko;
+	transition-duration: 0.5s;
+	color: black;
+	border-radius: 1.5mm;
+	text-decoration: underline;
+	padding-right: 2mm;
+	padding-left: 2mm;
+	background-color: white;
+	letter-spacing: 1px;
+}
+
+.action:hover, .action:active {
+	background-color: orange;
+}
+
+
+
+form {
+	max-width: 500px;
+}
+
+.red {
+	background-color: #e60a0a;
+	border: 1mm outset #e60a0a;
+}
+
+.blue {
+	background-color: #007bff;
+	border: 1mm outset #007bff;
+}
+
+.yellow {
+	background-color: #ecd900;
+	border: 1mm outset #ecd900;
+}
+
+.gray {
+	background-color: gray;
+	border: 1mm outset gray;
+}
+
+
+.die {
+	position: relative;
+	width: 20mm;
+	height: 20mm;
+	border-radius: 4mm;
+	text-align: center;
+	padding: 1mm;
+	margin: 5px;
+	margin-bottom: 5mm;
+	box-shadow: 0.5mm 0.5mm 1mm rgba(0, 0, 0, 0.36);
+	float: left;
+}
+
+.die.selected {
+	border-color: black;
+	border-style: solid;
+}
+
+.die.exhausted .dieface{
+	opacity: 0.5;
+}
+
+.die.exhausted {
+	border-style: solid;
+	box-shadow: 0 0 rgba(0, 0, 0, 0.49);
+}
+
+.dieface {
+	background-color: black;
+	display: block;
+	color: white;
+	font: 12mm Teko;
+	font-weight: 400;
+	border-radius: 50%;
+	height: 100%;
+	line-height: 21mm;
+	overflow: hidden;
+	white-space: nowrap;
+	transition-duration: 0.5s;
+}
+
+.modifier {
+	background-color: rgb(0, 40, 147);
+	padding: 10px;
+	position: relative;
+	right: 2mm;
+}
+
+.blank {
+	background-color: rgb(255, 0, 0);
+	padding: 8.25mm;
+}
+.diecost {
+	background-color: #ff5d06;
+	border-radius: 6 6 0 0 ;
+	color: white;
+	fill: black;
+	display: block;
+	position: absolute;
+	text-align: center;
+	width: 8mm;
+	font-size: 5mm;
+	line-height: 6mm;
+	border: 2pt solid white;
+	border-bottom-style: solid;
+	height: 5.5mm;
+	letter-spacing: -1px;
+	left: 6.5mm;
+	border-bottom-color: #a73a00;
+	bottom: -0.5mm;
+}
+.dieface .diecost svg {
+	width: 4.5mm;
+	height: 4.5mm;
+	top: auto;
+	vertical-align: baseline;
+	bottom: -2px;
+}
+.dieface svg {
+	max-width: 10mm;
+	max-height: 10mm;
+	stroke: white;
+	vertical-align: top;
+	position: relative;
+	top: 4.5mm;
+	fill: currentColor;
+}
+
+.id {
+	background: rgba(255, 255, 255, 0.51);
+	color: black;
+	max-width: 15mm;
+	border-radius: 0 0 2mm 2mm;
+	position: absolute;
+	bottom: -6mm;
+	left:-2px;
+	padding-top: 3mm;
+	padding-left: 5px;
+	padding-right: 5px;
+	padding-bottom: 2px;
+	overflow:hidden;
+	white-space: nowrap;
+	text-align: left;
+	z-index: -1;
+}
+
+.type {
+	background-color: black;
+	color: white;
+	font-weight: bold;
+	border-radius: 1mm;
+	text-align: center;
+	padding-left: 0.5mm;
+	padding-right: 0.5mm;
+}
+
+#deck {
+	background: rgba(0, 0, 0, 0.3);
+	position: fixed;
+	bottom: 10mm;
+	left: 0;
+	width: 100%;
+	padding: 10px;
+	line-height: 8mm;
+}
+
+#deck.show {
+	bottom: 15mm;
+}
+
+#deck.hide {
+	bottom: -100%;
+}
+
+.addToDeck {
+	border-radius: 2mm;
+	border: none;
+	padding: 0 2mm;
+	margin: 1mm;
+	display: inline-block;
+	transition-duration: 0.5s;
+}
+
+#dice .unplayed {
+	display: none;
+}
+
+#dice .inplay {
+	display: inline-block;
+}
+
+#deck .inplay {
+	opacity: 0.5;
+}
+
+#focus {
+	background-color: rgba(0, 0, 0, 0.39);
+	text-align: left;
+	display: block;
+	position: fixed;
+	left: 0;
+	width: 100%;
+	padding-right: 2mm;
+	padding-left: 2mm;
+	padding-top: 2mm;
+}
+
+#focus.show {
+	bottom: 15mm;
+}
+
+#focus.hide {
+	bottom: 100%;
+}
+
+
+#focus .dieface {
+	position: relative;
+	border-radius: 2mm;
+	display: block;
+	text-align: center;
+	min-width: 20mm;
+	max-width: 20mm;
+	max-height: 20mm;
+	min-height: 20mm;
+	margin: 3mm 1mm;
+	float: left;
+}
+
+#focus .dieface .diecost {
+	position: absolute;
+	border-bottom-color: white;
+	left: 5.5mm;
+	bottom: -0.5mm;
+}

@@ -1,0 +1,36 @@
+<html>
+<header>
+	<meta charset="UTF-8">
+	<script src="jquery.min.js"></script>
+	
+	<link href="card.css" type="text/css" rel="stylesheet">
+</header>
+<body>
+	<form>
+	<script>
+		function generateDice() {
+			var dicepool = $('[name = pool]').val()
+			var link = ('deck.html?dicepool='+dicepool)
+			window.location.href = link;
+		}
+	</script>
+	<h1 style="font-family: teko; font-weight: 300;">SW Destiny 'Kitchen' Dice</h1>
+	<input type="text" size="50" name="pool" value="29,45,65,65">
+	<a href="#" onclick="generateDice()">Generate Dice</a>
+	<br/>	<br/>
+	
+	
+	<b>About</b><br/>
+	I made this for people playing SW Destiny who either don't own all the dice they want to play with yet, or people who can't be bothered to bring all their plastic everywhere. Keep in mind that unlike FFG's native dice app, this web-app is not tournament legal. It's intended for casual kitchen table play only.<br/><br/>
+	This open-source project was made by <a href="https://twitter.com/ossianboren" target="_blank">@ossianboren</a> using an API from <a href="http://swdestinydb.com">swdestinydb.com</a>. The project hosts no copyrighted content. <br/>
+		<br/>
+		<b>Instructions</b><br/>
+		Make a list of all dice you want to use in the field above, using their "set id" (Finn is nr 45 for example). Make one entry per die (Elite Finn is 45,45). Then click the generate dice button. You can bookmark that page to save your dicepools for later.<br/>You can leave the dice field empty to see a demo deck. I recommend using this app with a smartphone in landscape mode.
+		<br/>
+		<br/>
+		On the deck page, you have four actions. Press "DECK" to bring up your available dice and press the name of a card to add or remove dice from the game. Press "DECK" again to hide your available dice. You can sort the dice by dragging them around. By tapping a die you select it (black border). Once you select one or more dice you can use the other actions. "ROLL" Will simply roll them. "EXHAUST" will gray them out to indicate that they're not in play. "FOCUS" let's you turn over a die to any side. Note that focus can only be used with one die at a time.
+		<br/>	<br/>
+		<i>ps. check out my other project, SWDestiny Kitchen Proxys!</i>
+		</form>
+	</body>
+	</html>
