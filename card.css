@@ -10,8 +10,6 @@ body {
 	position: fixed;
 	bottom: 0;
 	left: 0;
-	background: black;
-	height: 15mm;
 	width: 100%;
 	color: white;
 	z-index: 1;
@@ -30,6 +28,10 @@ body {
 	padding-left: 2mm;
 	background-color: white;
 	letter-spacing: 1px;
+	display: block;
+	margin-right: 1mm;
+	margin-left: 1mm;
+	margin-bottom: 1mm;
 }
 
 .action:hover, .action:active {
@@ -185,12 +187,13 @@ form {
 	bottom: 10mm;
 	left: 0;
 	width: 100%;
-	padding: 10px;
+	padding-bottom: 15mm;
 	line-height: 8mm;
+	transition-duration: 0.5s;
 }
 
 #deck.show {
-	bottom: 15mm;
+	bottom: 0mm;
 }
 
 #deck.hide {
@@ -225,17 +228,24 @@ form {
 	position: fixed;
 	left: 0;
 	width: 100%;
-	padding-right: 2mm;
-	padding-left: 2mm;
 	padding-top: 2mm;
+	padding-right: 2mm;
+	padding-bottom: 15mm;
+	color: white;
+	transition-duration: 0.5s;
+}
+
+#focus span:not(.dieface span) {
+	margin-left: 2mm;
+	ont-size: 4mm;
 }
 
 #focus.show {
-	bottom: 15mm;
+	bottom: 0;
 }
 
 #focus.hide {
-	bottom: 100%;
+	bottom: -100%;
 }
 
 

@@ -46,7 +46,7 @@ function seedDeck (id) {
     console.log(n)
 		face = ('<div class="dieface">[' + carddata.sides[n] + ']</div>')
 	}
-	var newHtml = ('<div onclick="selectDice('+id+''+dicecounter+', $(this))"  id="'+id+''+dicecounter+'" class="die unplayed ' + carddata.faction_code + ' exhausted"><span class="id"><span class="type">'+ carddata.type_code[0] + '</span> ' + carddata.name[0] + carddata.name[1] + carddata.name[2] + carddata.name[3] + carddata.name[4] +'</span>' + face + '</div>');
+	var newHtml = ('<div onclick="selectDice('+id+''+dicecounter+', $(this))"  id="'+id+''+dicecounter+'" class="die unplayed ' + carddata.faction_code + ' exhausted"><span class="id"><span class="type">'+ carddata.type_name[0] + '</span> ' + carddata.name[0] + carddata.name[1] + carddata.name[2] + carddata.name[3] + carddata.name[4] +'</span>' + face + '</div>');
 	$('#dice').append( newHtml );
 	replaceInlineSymbol();
 	$('#'+id+''+dicecounter).data(carddata)
@@ -103,15 +103,17 @@ function exhaustDice(element) {
 
 function focusDie(element) {
 	carddata = element.data();
-	newHtml = ('<div id="focus" class="show"><span class="type">'+ carddata.type_name[0] + '</span> '+ carddata.name + '<br/><div class="dieface" onclick="focusDie2(0)">[' + carddata.sides[0] + ']</div><div class="dieface" onclick="focusDie2(1)">[' + carddata.sides[1] + ']</div><div class="dieface" onclick="focusDie2(2)">[' + carddata.sides[2] + ']</div><div class="dieface" onclick="focusDie2(3)">[' + carddata.sides[3] + ']</div><div class="dieface" onclick="focusDie2(4)">[' + carddata.sides[4] + ']</div><div class="dieface" onclick="focusDie2(5)">[' + carddata.sides[5] + ']</div>')
+	newHtml = ('<span class="type">'+ carddata.type_name[0] + '</span> '+ carddata.name + '<br/><div class="dieface" onclick="focusDie2(0)">[' + carddata.sides[0] + ']</div><div class="dieface" onclick="focusDie2(1)">[' + carddata.sides[1] + ']</div><div class="dieface" onclick="focusDie2(2)">[' + carddata.sides[2] + ']</div><div class="dieface" onclick="focusDie2(3)">[' + carddata.sides[3] + ']</div><div class="dieface" onclick="focusDie2(4)">[' + carddata.sides[4] + ']</div><div class="dieface" onclick="focusDie2(5)">[' + carddata.sides[5] + ']</div>')
 	$('#focus').html( newHtml )
+	$('#focus').removeClass( 'hide' )
+	$('#focus').addClass( 'show' )
 	replaceInlineSymbol();	
 	focusedDie = ('#'+selected[0])
 }
 
 function focusDie2(n) {
 	var element = $(focusedDie)
-	element.effect( "bounce", { times: 1 }, "fast" );
+	element.effect( "bounce", { times: 1 }, "slow" );
 	carddata = element.data();
 	face = ('<div class="dieface">[' + carddata.sides[n] + ']</div>');
 	element.find(".dieface").html(face);
@@ -119,7 +121,6 @@ function focusDie2(n) {
 	element.removeClass('exhausted')
 	$('#focus').removeClass( 'show' )
 	$('#focus').addClass( 'hide' )
-	$('#focus').html('')
 }
 
 function addRemoveDice() {
@@ -141,7 +142,7 @@ function putInPlay(id, element) {
  	}else{
 		$('#'+id).removeClass('unplayed');
 		$('#'+id).addClass('inplay');
-		$('#'+id).parent().sortable();
+		$('#'+id).draggable();
 		$(element).addClass('inplay');
 	}
 }

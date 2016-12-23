@@ -23,11 +23,11 @@
  	<div id="dice"></div>
  	<div id="deck" class="hide"></div>
  	<div id="actions">
- 		<span onclick="selectAction(exhaustDice,$(this))" class="action">exhaust</span>
- 		<span onclick="selectAction(rollDice,$(this))" class="action">roll</span>
- 		<span onclick="selectAction(focusDie,$(this))" class="action">focus</span>
- 		<span onclick="selectAction(addRemoveDice,$(this))" class="action">deck</span>
+ 		<span onclick="selectAction(exhaustDice,$(this))" class="action" style="float: right;">exhaust</span>
+ 		<span onclick="selectAction(rollDice,$(this))" class="action" style="float: right;">roll</span>
+ 		<span onclick="selectAction(focusDie,$(this))" class="action" style="float: right;">focus</span>
+ 		<span onclick="selectAction(addRemoveDice,$(this))" class="action" style="float: left;">deck</span>
  	</div>
- 	<div id="focus" class="hide"></div>
+ 	<div id="focus" class="hide"><span class="type">error</span> Choose a die first!<br/><div class="dieface" ></div><div class="dieface"></div><div class="dieface"></div><div class="dieface" ></div><div class="dieface"></div><div class="dieface"></div>
  </body>
 </html>
