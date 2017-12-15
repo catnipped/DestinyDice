@@ -15,7 +15,7 @@ body {
     opacity:0.1;
     display: block;
     text-align: center;
-    
+    position: fixed;
 }
 
 #actions {
