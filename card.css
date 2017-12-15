@@ -109,6 +109,7 @@ form {
 .dieface {
 	display: block;
 	color: white;
+    text-shadow: 1px 1px 1px black;
 	font: 12mm Teko;
 	font-weight: 400;
 	border-radius: 50%;
@@ -118,6 +119,9 @@ form {
 	white-space: nowrap;
 	transition-duration: 0.5s;
     filter: grayscale(0);
+}
+.dieface svg {
+    filter: drop-shadow(1px 1px 1px black);
 }
 
 .modifier {
