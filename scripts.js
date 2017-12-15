@@ -24,7 +24,7 @@ function fetchCardData(id) {
         id = "0" + id;
     }
    console.log(id)
-   cardurl = "http://swdestinydb.com/api/public/card/" + id;
+   cardurl = "https://swdestinydb.com/api/public/card/" + id;
    	$.ajax({
    		url: cardurl,
    		async: false,
