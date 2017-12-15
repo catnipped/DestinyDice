@@ -1,7 +1,7 @@
 var carddata = new Object();
 var cardid = ""
 var cardurl = ""
-var deck = [29,45,65,65,8,8,55,55,34,34,67,67,5,5,64,64,32,6]
+var deck = [1005,2001]
 var dicepool = getUrlVars()["dicepool"];
 var dicepool = JSON.parse("[" + dicepool + "]");
 
@@ -12,6 +12,7 @@ var action = ""
 window.onload = function () {
 	if (dicepool.length >= 1) {
 		deck = dicepool;
+        console.log(dicepool)
 	}
 	for (i = 0; i < deck.length; i++) {
 	    seedDeck(deck[i]);
@@ -19,10 +20,11 @@ window.onload = function () {
 };
 
 function fetchCardData(id) {
-
-   cardidwithzeroes = ("00" + id).slice(-3);
-   console.log(cardidwithzeroes)
-   cardurl = "http://swdestinydb.com/api/public/card/01" + cardidwithzeroes;
+    if (id < 10000) {
+        id = "0" + id;
+    }
+   console.log(id)
+   cardurl = "http://swdestinydb.com/api/public/card/" + id;
    	$.ajax({
    		url: cardurl,
    		async: false,
@@ -44,7 +46,7 @@ function seedDeck (id) {
 	if (carddata.has_die) {
     var n = Math.floor((Math.random() * 6));
     console.log(n)
-		face = ('<div class="dieface">[' + carddata.sides[n] + ']</div>')
+		face = ('<div class="dieface" style=" background:url('+carddata.imagesrc+'); background-size:50mm; background-position: center 55mm;">[' + carddata.sides[n] + ']</div>')
 	}
 	var newHtml = ('<div onclick="selectDice('+id+''+dicecounter+', $(this))"  id="'+id+''+dicecounter+'" class="die unplayed ' + carddata.faction_code + ' exhausted"><span class="id"><span class="type">'+ carddata.type_name[0] + '</span> ' + carddata.name[0] + carddata.name[1] + carddata.name[2] + carddata.name[3] + carddata.name[4] +'</span>' + face + '</div>');
 	$('#dice').append( newHtml );
